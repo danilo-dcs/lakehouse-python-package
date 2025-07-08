@@ -172,7 +172,10 @@ Downloads a file from the lakehouse catalog using its catalog ID. Returns the lo
 
 **Basic Example:**
 ```
-client.download_file(catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4", output_file_dir="LOCAL_COMPUTER_PATH")
+client.download_file(
+  catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4", 
+  output_file_dir="LOCAL_COMPUTER_PATH"
+)
 ```
 
 ---
@@ -522,7 +525,6 @@ client.upload_dataframe(
 ```
 
 ---
-
 <a name="clientupload_file"></a>
 
 ### `client.upload_file()` 
