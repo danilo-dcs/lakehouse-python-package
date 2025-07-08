@@ -117,7 +117,7 @@ Authenticates the user based on login details. It returns the authentication tok
 - password: A string containing the user's password
 
 **Basic Example:**
-```
+```python
 client.auth(email="your_email@mail.com", password="PASS")
 ```
 
@@ -144,7 +144,7 @@ Creates a new collection of files. Returns the collection's name.
 - A dictionary containing the collection item in the catalog
 
 **Basic Example:**
-```
+```python
 client.create_collection(
   collection_name="YOUR_COLLETION_NAME", 
   storage_type="gcs", 
@@ -171,7 +171,7 @@ Downloads a file from the lakehouse catalog using its catalog ID. Returns the lo
 - A string containing the output file address
 
 **Basic Example:**
-```
+```python
 client.download_file(
   catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4", 
   output_file_dir="LOCAL_COMPUTER_PATH"
@@ -197,7 +197,7 @@ The file must be CSV, XLSX, TSV, JSON, MD, HTML, TEX, or PARQUET. Only works if 
 - It returns a pandas dataframe of the desired file
 
 **Basic Example:**
-```
+```python
 client.get_dataframe(catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4")
 ```
 
@@ -219,7 +219,7 @@ List all available collections.
 Returns a table-formatted string with the collections records
 
 **Basic Example:**
-```
+```python
 client.list_collections()
 ```
 
@@ -241,7 +241,7 @@ List all available collections.
 Returns a list of python dictionaries with the collections records
 
 **Basic Example:**
-```
+```python
 client.list_collections_dict()
 ```
 
@@ -263,7 +263,7 @@ List all available collections.
 Returns a pandas dataframe with the collections records
 
 **Basic Example:**
-```
+```python
 client.list_collections_df()
 ```
 
@@ -285,7 +285,7 @@ List all available collections.
 Returns a json-formatted string with the collections records
 
 **Basic Example:**
-```
+```python
 client.list_collections_json()
 ```
 
@@ -313,7 +313,7 @@ Useful for exploring available resources before querying or downloading.
 - It returns a table-formatted string with the files in the catalog
 
 **Basic Example:**
-```
+```python
 client.list_files()
 ```
 
@@ -341,7 +341,7 @@ Useful for exploring available resources before querying or downloading.
 - It returns a list of python dictionaries with the files in the catalog
 
 **Basic Example:**
-```
+```python
 client.list_files_dict()
 ```
 
@@ -369,7 +369,7 @@ Useful for exploring available resources before querying or downloading.
 - It returns a pandas dataframe with the files in the catalog
 
 **Basic Example:**
-```
+```python
 client.list_files_df()
 ```
 
@@ -397,7 +397,7 @@ Useful for exploring available resources before querying or downloading.
 - It returns a json-formatted string with the files in the catalog
 
 **Basic Example:**
-```
+```python
 client.list_files_json()
 ```
 
@@ -416,7 +416,7 @@ Buckets represent logical data partitions or storage spaces.
 - It returns a table-formatted string containing all the storage buckets in the system
 
 **Basic Example:**
-```
+```python
 client.list_buckets()
 ```
 
@@ -435,7 +435,7 @@ Buckets represent logical data partitions or storage spaces.
 - It returns a list of pyton dicts containing all the storage buckets in the system
 
 **Basic Example:**
-```
+```python
 client.list_buckets_dict()
 ```
 
@@ -454,7 +454,7 @@ Buckets represent logical data partitions or storage spaces.
 - It returns a pandas dataframe containing all the storage buckets in the system
 
 **Basic Example:**
-```
+```python
 client.list_buckets_df()
 ```
 
@@ -473,7 +473,7 @@ Buckets represent logical data partitions or storage spaces.
 - It returns a json-formatted string containing all the storage buckets in the system
 
 **Basic Example:**
-```
+```python
 client.list_buckets_json()
 ```
 
@@ -516,7 +516,7 @@ Prepares a new file for upload from local storage. This operation returns the fo
   Indicates the processing level of the dataframe (e.g., `raw`, `processed`, etc.).
 
 **Basic Example:**
-```
+```python
 client.upload_dataframe(
   df=df_variable,
   df_name="DATASET_NAME", 
@@ -549,7 +549,7 @@ Uploads a local file to the lakehouse
 - A dictionary containing the file id in the catalog and the file name
 
 **Basic Example:**
-```
+```python
 client.upload_dataframe(
   local_file_path="/Desktop/files/sample/sequences.fasta", 
   final_file_name="sequences_dengue.fasta",
