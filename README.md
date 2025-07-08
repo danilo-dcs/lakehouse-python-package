@@ -186,8 +186,10 @@ client.download_file(
 
 **Description:**  
 Get a file as a dataframe.  
+
 **Condition:**  
-The file must be CSV, XLSX, TSV, JSON, MD, HTML, TEX, or PARQUET. Only works if the catalog marks the file as 'structured'.  
+Only works if the catalog marks the file as 'structured' (or file format is CSV, XLSX, TSV, JSON, MD, HTML, TEX, or PARQUET).
+
 **Parameters:**
 
 - catalogue\_file\_id: the file ID in the catalog
