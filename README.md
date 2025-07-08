@@ -535,7 +535,7 @@ client.upload_dataframe(
 **Description:**  
 Uploads a local file to the lakehouse
 
-**Parameters:**
+**Arguments:**
 
 - local\_file\_path: the local path to the file to be uploaded
 - final\_file\_name: the output file name in the storage
@@ -552,7 +552,7 @@ Uploads a local file to the lakehouse
 
 **Basic Example:**
 ```python
-client.upload_dataframe(
+client.upload_file(
   local_file_path="/Desktop/files/sample/sequences.fasta", 
   final_file_name="sequences_dengue.fasta",
   collection_catalog_id="0197eada-cedb-77d5-8935-b319b59fae02",
