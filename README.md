@@ -118,7 +118,7 @@ Authenticates the user based on login details. It returns the authentication tok
 
 **Basic Example:**
 ```
-client.auth("your_email@mail.com", "password")
+client.auth(email="your_email@mail.com", password="PASS")
 ```
 
 ---
