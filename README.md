@@ -106,7 +106,7 @@ The lakehouse storage structure is divided in three levels:
 
 <a name="clientauth"></a>
 
-### `client.auth()` {#clientauth}
+### `client.auth()`
 
 **Description:**  
 Authenticates the user based on login details. It returns the authentication token.
@@ -145,7 +145,11 @@ Creates a new collection of files. Returns the collection's name.
 
 **Basic Example:**
 ```
-client.create_collection(collection_name="YOUR_COLLETION_NAME", storage_type="gcs", bucket_name="AVAILABLE_STORAGE_BUCKET_NAME")
+client.create_collection(
+  collection_name="YOUR_COLLETION_NAME", 
+  storage_type="gcs", 
+  bucket_name="AVAILABLE_STORAGE_BUCKET_NAME"
+)
 ```
 
 ---
