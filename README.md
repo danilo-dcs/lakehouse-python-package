@@ -620,15 +620,15 @@ client.search_collections_by_keyword(keyword="clinical reports")
 
 **Basic Example**:
 
-1. The following example searches any collection_name equal 'covid-cases', and the query result will be returned as a json text.
+1. The following example searches any collection that contains the word 'covid' in its name
 ```python
-client.search_collections_query('collection_name=covid-cases')
+client.search_collections_query('collection_name*covid')
 ```
 
-2. The following example search for any collection with 'lake' within its name, inserted_by equals `0197eae8-bc59-7ac4-80b3-81bfec379f7e:user1@gmail.com` and inserted_at greater than `1747934722` (date in miliseconds)
+2. The following example search for any collection named `covv_patient_data`, inserted_by equals `0197eae8-bc59-7ac4-80b3-81bfec379f7e:user1@gmail.com` and inserted_at greater than `1747934722` (date in miliseconds)
 ```python
 client.search_collections_query(
-  'collection_name*lake',
+  'collection_name=covv_patient_data',
   'inserted_by=0197eae8-bc59-7ac4-80b3-81bfec379f7e:user1@gmail.com',
   'inserted_at>1747934722'
 )
@@ -703,10 +703,10 @@ client.search_files_by_keyword(keyword="genome")
 client.search_files_query('file_name*sequences')
 ```
 
-2. The following example searches any file that containes the word `zika` in its file_name property, inserted_at data is greater than `1747934722` (date in miliseconds), processing level is equal `raw`, and file_category equals `structured`.
+2. The following example searches any file named `zika_count.csv`, inserted_at data is greater than `1747934722` (date in miliseconds), processing level is equal `raw`, and file_category equals `structured`.
 ```python
 client.search_files_query(
-  'file_name*zika',
+  'file_name=zika_count.csv',
   'inserted_at>1747934722', 
   'processing_level=raw', 
   'file_category=structured'
