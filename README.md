@@ -525,6 +525,7 @@ client.upload_dataframe(
 ```
 
 ---
+#TODO clarify upload_file vs upload dataframe
 <a name="clientupload_file"></a>
 
 ### `client.upload_file()` 
@@ -576,7 +577,7 @@ client.upload_dataframe(
 **Basic Example**:
 
 ```python
-client.search_collections_by_keyword("clinical reports")
+client.search_collections_by_keyword(keyword="clinical reports")
 ```
 
 ---
@@ -651,7 +652,7 @@ client.search_collections_query(
 **Basic Example**:
 
 ```python
-client.search_files_by_keyword("genome")
+client.search_files_by_keyword(keyword="genome")
 ```
 
 ---
