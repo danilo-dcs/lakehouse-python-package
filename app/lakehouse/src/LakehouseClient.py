@@ -98,6 +98,10 @@ class LakehouseClient:
             filename, _ = os.path.splitext(filename)
         return filename
 
+    def __get_file_extension(self, path: str):
+        _, ext = os.path.splitext(path)
+        return ext  
+
     
     def __make_request(self, endpoint, method = "POST", **kwargs):
         """
@@ -568,9 +572,14 @@ class LakehouseClient:
 
         file_size = os.path.getsize(local_file_path)
 
-        print("File Name")
-        print(self.__get_filename(path=local_file_path))
-        print()
+        file_extension = self.__get_file_extension(local_file_path)
+
+        if file_extension:
+            final_file_name_lower = final_file_name.lower()
+            file_extension_lower = file_extension.lower()
+            
+            if not final_file_name_lower.endswith(file_extension_lower):
+                final_file_name += file_extension
         
         payload = {
             "collection_catalog_id": collection_catalog_id,
