@@ -112,6 +112,11 @@ Buckets:
 
 ### `client.auth()` <a name="clientauth"></a> [_\[click here to go back to the top\]_](#index)
 
+**Basic Example:**
+```python
+client.auth(email="your_email@mail.com", password="PASS")
+```
+
 **Description:**  
 Authenticates the user based on login details. It returns the authentication token.
 
@@ -120,14 +125,18 @@ Authenticates the user based on login details. It returns the authentication tok
 - email: A string containing the user email
 - password: A string containing the user's password
 
-**Basic Example:**
-```python
-client.auth(email="your_email@mail.com", password="PASS")
-```
-
 ---
 
 ### `client.create_collection()` <a name="clientcreate_collection"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.create_collection(
+  collection_name="YOUR_COLLETION_NAME", 
+  storage_type="gcs", 
+  bucket_name="AVAILABLE_STORAGE_BUCKET_NAME"
+)
+```
 
 **Description:**  
 Creates a new collection of files. Returns the collection's name.
@@ -145,18 +154,17 @@ Creates a new collection of files. Returns the collection's name.
 
 - A dictionary containing the collection item in the catalog
 
-**Basic Example:**
-```python
-client.create_collection(
-  collection_name="YOUR_COLLETION_NAME", 
-  storage_type="gcs", 
-  bucket_name="AVAILABLE_STORAGE_BUCKET_NAME"
-)
-```
-
 ---
 
 ### `client.download_file()` <a name="clientdownload_file"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.download_file(
+  catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4", 
+  output_file_dir="LOCAL_COMPUTER_PATH"
+)
+```
 
 **Description:**  
 Downloads a file from the lakehouse catalog using its catalog ID. Returns the local path where the file was saved.
@@ -170,17 +178,14 @@ Downloads a file from the lakehouse catalog using its catalog ID. Returns the lo
 
 - A string containing the output file address
 
-**Basic Example:**
-```python
-client.download_file(
-  catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4", 
-  output_file_dir="LOCAL_COMPUTER_PATH"
-)
-```
-
 ---
 
 ### `client.get_dataframe()` <a name="clientget_dataframe"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.get_dataframe(catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4")
+```
 
 **Description:**  
 Get a file as a dataframe.  
@@ -196,14 +201,14 @@ Only works if the catalog marks the file as 'structured' (or file format is CSV,
 
 - It returns a pandas dataframe of the desired file
 
-**Basic Example:**
-```python
-client.get_dataframe(catalog_file_id="0197ead3-028c-797e-8717-5441be78a0e4")
-```
-
 ---
 
 ### `client.list_collections()` <a name="clientlist_collections"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_collections()
+```
 
 **Description**
 List all available collections.
@@ -216,14 +221,14 @@ List all available collections.
 **Returns**
 Returns a table-formatted string with the collections records
 
-**Basic Example:**
-```python
-client.list_collections()
-```
-
 ---
 
 ### `client.list_collections_dict()` <a name="clientlist_collections_dict"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_collections_dict()
+```
 
 **Description**
 List all available collections.
@@ -236,14 +241,14 @@ List all available collections.
 **Returns**
 Returns a list of python dictionaries with the collections records
 
-**Basic Example:**
-```python
-client.list_collections_dict()
-```
-
 ---
 
 ### `client.list_collections_df()` <a name="clientlist_collections_df"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_collections_df()
+```
 
 **Description**
 List all available collections.
@@ -256,14 +261,14 @@ List all available collections.
 **Returns**
 Returns a pandas dataframe with the collections records
 
-**Basic Example:**
-```python
-client.list_collections_df()
-```
-
 ---
 
 ### `client.list_collections_json()` <a name="clientlist_collections_json"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_collections_json()
+```
 
 **Description**
 List all available collections.
@@ -276,14 +281,14 @@ List all available collections.
 **Returns**
 Returns a json-formatted string with the collections records
 
-**Basic Example:**
-```python
-client.list_collections_json()
-```
-
 ---
 
 ### `client.list_files()` <a name="clientlist_files"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_files()
+```
 
 List files in a given collection or bucket.  
 **Description**:
@@ -302,14 +307,14 @@ Useful for exploring available resources before querying or downloading.
 
 - It returns a table-formatted string with the files in the catalog
 
-**Basic Example:**
-```python
-client.list_files()
-```
-
 ---
 
 ### `client.list_files_dict()` <a name="clientlist_files_dict"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_files_dict()
+```
 
 List files in a given collection or bucket.  
 **Description**:
@@ -328,14 +333,14 @@ Useful for exploring available resources before querying or downloading.
 
 - It returns a list of python dictionaries with the files in the catalog
 
-**Basic Example:**
-```python
-client.list_files_dict()
-```
-
 ---
 
 ### `client.list_files_df()` <a name="clientlist_files_df"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_files_df()
+```
 
 List files in a given collection or bucket.  
 **Description**:
@@ -354,14 +359,14 @@ Useful for exploring available resources before querying or downloading.
 
 - It returns a pandas dataframe with the files in the catalog
 
-**Basic Example:**
-```python
-client.list_files_df()
-```
-
 ---
 
 ### `client.list_files_json()` <a name="clientlist_files_json"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_files_json()
+```
 
 List files in a given collection or bucket.  
 **Description**:
@@ -380,14 +385,14 @@ Useful for exploring available resources before querying or downloading.
 
 - It returns a json-formatted string with the files in the catalog
 
-**Basic Example:**
-```python
-client.list_files_json()
-```
-
 ---
 
 ### `client.list_buckets()` <a name="clientlist_buckets"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_buckets()
+```
 
 List all buckets accessible by the user.  
 **Description**:
@@ -397,14 +402,14 @@ Buckets represent logical data partitions or storage spaces.
 
 - It returns a table-formatted string containing all the storage buckets in the system
 
-**Basic Example:**
-```python
-client.list_buckets()
-```
-
 ---
 
 ### `client.list_buckets_dict()` <a name="clientlist_buckets_dict"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_buckets_dict()
+```
 
 List all buckets accessible by the user.  
 **Description**:
@@ -414,14 +419,14 @@ Buckets represent logical data partitions or storage spaces.
 
 - It returns a list of pyton dicts containing all the storage buckets in the system
 
-**Basic Example:**
-```python
-client.list_buckets_dict()
-```
-
 ---
 
 ### `client.list_buckets_df()` <a name="clientlist_buckets_df"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_buckets_df()
+```
 
 List all buckets accessible by the user.  
 **Description**:
@@ -431,14 +436,14 @@ Buckets represent logical data partitions or storage spaces.
 
 - It returns a pandas dataframe containing all the storage buckets in the system
 
-**Basic Example:**
-```python
-client.list_buckets_df()
-```
-
 ---
 
 ### `client.list_buckets_json()` <a name="clientlist_buckets_json"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.list_buckets_json()
+```
 
 List all buckets accessible by the user.  
 **Description**:
@@ -448,14 +453,18 @@ Buckets represent logical data partitions or storage spaces.
 
 - It returns a json-formatted string containing all the storage buckets in the system
 
-**Basic Example:**
-```python
-client.list_buckets_json()
-```
-
 ---
 
 ### `client.upload_dataframe()` <a name="clientupload_dataframe"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.upload_dataframe(
+  df=df_variable,
+  df_name="DATASET_NAME", 
+  collection_catalog_id="0197eada-cedb-77d5-8935-b319b59fae02"
+)
+```
 
 Upload a pandas DataFrame to the lakehouse.
 
@@ -489,18 +498,19 @@ Prepares a new file for upload from local storage. This operation returns the fo
 - processing\_level _(Optional, default: `raw`)_:  
   Indicates the processing level of the dataframe (e.g., `raw`, `processed`, etc.).
 
-**Basic Example:**
-```python
-client.upload_dataframe(
-  df=df_variable,
-  df_name="DATASET_NAME", 
-  collection_catalog_id="0197eada-cedb-77d5-8935-b319b59fae02"
-)
-```
-
 ---
 
 ### `client.upload_file()` <a name="clientupload_file"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example:**
+```python
+client.upload_file(
+  local_file_path="/Desktop/files/sample/sequences.fasta", 
+  final_file_name="sequences_dengue.fasta",
+  collection_catalog_id="0197eada-cedb-77d5-8935-b319b59fae02",
+  file_category="unstructured"
+)
+```
 
 **Description:**  
 Uploads a local file to the lakehouse
@@ -520,19 +530,17 @@ Uploads a local file to the lakehouse
 
 - A dictionary containing the file id in the catalog and the file name
 
-**Basic Example:**
-```python
-client.upload_file(
-  local_file_path="/Desktop/files/sample/sequences.fasta", 
-  final_file_name="sequences_dengue.fasta",
-  collection_catalog_id="0197eada-cedb-77d5-8935-b319b59fae02",
-  file_category="unstructured"
-)
-```
+
 
 ---
 
 ### `client.search_collections_by_keyword()` <a name="clientsearch_collections_by_keyword"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example**:
+
+```python
+client.search_collections_by_keyword(keyword="clinical reports")
+```
 
 **Description**: Search the collections in the catalogue by keyword. Enables discovery of collections of datasets based on a specified keyword
 
@@ -545,15 +553,23 @@ client.upload_file(
 
 - It returns the collections reccords in the specified output format.
 
-**Basic Example**:
-
-```python
-client.search_collections_by_keyword(keyword="clinical reports")
-```
-
 ---
 
 ### `client.search_collections_query()` <a name="clientsearch_collections_query"></a> [_\[click here to go back to the top\]_](#index)
+
+1. The following example searches any collection that contains the word 'covid' in its name
+```python
+client.search_collections_query('collection_name*covid')
+```
+
+2. The following example search for any collection named `covv_patient_data`, inserted_by equals `0197eae8-bc59-7ac4-80b3-81bfec379f7e:user1@gmail.com` and inserted_at greater than `1747934722` (date in miliseconds)
+```python
+client.search_collections_query(
+  'collection_name=covv_patient_data',
+  'inserted_by=0197eae8-bc59-7ac4-80b3-81bfec379f7e:user1@gmail.com',
+  'inserted_at>1747934722'
+)
+```
 
 **Description**: Query the collections in the catalogue based on query parameters. Enables discovery of collections of datasets based on a specified keyword
 
@@ -585,25 +601,17 @@ client.search_collections_by_keyword(keyword="clinical reports")
 - OPERTOR: must be one of the following "=", ">","<", ">=", "<=" or the wildcard operator "\*" (substring match)
 - VALUE: Value for each parameter
 
-**Basic Example**:
 
-1. The following example searches any collection that contains the word 'covid' in its name
-```python
-client.search_collections_query('collection_name*covid')
-```
-
-2. The following example search for any collection named `covv_patient_data`, inserted_by equals `0197eae8-bc59-7ac4-80b3-81bfec379f7e:user1@gmail.com` and inserted_at greater than `1747934722` (date in miliseconds)
-```python
-client.search_collections_query(
-  'collection_name=covv_patient_data',
-  'inserted_by=0197eae8-bc59-7ac4-80b3-81bfec379f7e:user1@gmail.com',
-  'inserted_at>1747934722'
-)
-```
 
 ---
 
 ### `client.search_files_by_keyword()`  <a name="clientsearch_files_by_keyword"></a> [_\[click here to go back to the top\]_](#index)
+
+**Basic Example**:
+
+```python
+client.search_files_by_keyword(keyword="genome")
+```
 
 **Description**: Search the files in the catalogue by keyword and returns any files that contain the given keyword in its name. Enables discovery of files of datasets based on a specified keyword
 
@@ -616,15 +624,24 @@ client.search_collections_query(
 
 - It returns the files reccords in the specified output format.
 
-**Basic Example**:
-
-```python
-client.search_files_by_keyword(keyword="genome")
-```
-
 ---
 
 ### `client.search_files_query()` <a name="clientsearch_files_query"></a> [_\[click here to go back to the top\]_](#index)
+
+1. The following example searches any files with the word `sequences` in its file_name.
+```python
+client.search_files_query('file_name*sequences')
+```
+
+2. The following example searches any file named `zika_count.csv`, inserted_at data is greater than `1747934722` (date in miliseconds), processing level is equal `raw`, and file_category equals `structured`.
+```python
+client.search_files_query(
+  'file_name=zika_count.csv',
+  'inserted_at>1747934722', 
+  'processing_level=raw', 
+  'file_category=structured'
+)
+```
 
 **Description**: Query the files in the catalogue based on query parameters. Enables discovery of collections of datasets based on a specified keyword
 
@@ -658,22 +675,5 @@ client.search_files_by_keyword(keyword="genome")
 - QUERY_PARAMETER: must be one of the query parameters listed above
 - OPERATOR: must be one of the following "=", "!=", ">","<", ">=", "<=" or the wildcard operator "\*" (substring match)
 - VALUE: Value for each parameter
-
-**Basic Example**:
-
-1. The following example searches any files with the word `sequences` in its file_name.
-```python
-client.search_files_query('file_name*sequences')
-```
-
-2. The following example searches any file named `zika_count.csv`, inserted_at data is greater than `1747934722` (date in miliseconds), processing level is equal `raw`, and file_category equals `structured`.
-```python
-client.search_files_query(
-  'file_name=zika_count.csv',
-  'inserted_at>1747934722', 
-  'processing_level=raw', 
-  'file_category=structured'
-)
-```
 
 ---
