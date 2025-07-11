@@ -91,6 +91,12 @@ class LakehouseClient:
         
             return self.__df_to_tablestring(df=df)
         return data
+    
+    def __get_filename(self, path: str, keep_extension=True):
+        filename = os.path.basename(path)
+        if not keep_extension:
+            filename, _ = os.path.splitext(filename)
+        return filename
 
     
     def __make_request(self, endpoint, method = "POST", **kwargs):
@@ -561,6 +567,10 @@ class LakehouseClient:
         print("Uploading data...")
 
         file_size = os.path.getsize(local_file_path)
+
+        print("File Name")
+        print(self.__get_filename(path=local_file_path))
+        print()
         
         payload = {
             "collection_catalog_id": collection_catalog_id,
