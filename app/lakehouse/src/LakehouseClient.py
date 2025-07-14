@@ -608,8 +608,11 @@ class LakehouseClient:
                 signed_url,
                 headers={"x-goog-resumable": "start"}
             )
-
+            init_response.raise_for_status()
             session_uri = init_response.headers.get("location")
+
+            if not session_uri:
+                raise ValueError("Failed to get session URI for resumable upload")
 
             with open(local_file_path, "rb") as file:
                 while chunk := file.read(CHUNK_SIZE):
