@@ -257,15 +257,15 @@ class LakehouseClient:
 
 
     # Get functions
-    def get_dataframe(self, catalogue_file_id: str) -> pd.DataFrame | dict:
+    def get_dataframe(self, catalog_file_id: str) -> pd.DataFrame | dict:
         """Description: Get a file as a dataframe. \n
         Condition: the file must be CSV, XLSX, TSV, JSON, MD, HTML, TEX or PARQUET. If the file record's 'file_category' property is marked as 'structured' in the catalogue, the file is can be converted into a dataframe. \n
         Parameters:\n
-        - catalogue_file_id: is the id for the dataframe record in the catalog
+        - catalog_file_id: is the id for the dataframe record in the catalog
         """
 
         downloaded_file_path = self.download_file(
-            catalog_file_id=catalogue_file_id,
+            catalog_file_id=catalog_file_id,
             output_file_dir=self.__file_load_path
         )
 
