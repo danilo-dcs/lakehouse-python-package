@@ -600,16 +600,14 @@ class LakehouseClient:
 
         method = str(response["method"])
 
-        CHUNK_SIZE = 5 * 1024 * 1024
-
-        if method.lower() == "put":  # cloud
+        if method.lower() == "put":
             with open(local_file_path, "rb") as file:
-                while chunk := file.read(CHUNK_SIZE):
+                while chunk := file.read():
                     response = requests.put(signed_url, data=chunk, headers={"Content-Type": "application/octet-stream"})
                     response.raise_for_status()
         else:
-            with open(local_file_path, 'rb') as file:  # hdfs
-                while chunk := file.read(CHUNK_SIZE):
+            with open(local_file_path, 'rb') as file:
+                while chunk := file.read():
                     response = requests.post(signed_url, data=chunk, headers={'Content-Type': 'application/octet-stream'})
                     response.raise_for_status()
      
