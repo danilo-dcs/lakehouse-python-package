@@ -600,14 +600,16 @@ class LakehouseClient:
 
         method = str(response["method"])
 
+        CHUNK_SIZE = 10 * 1024 * 1024
+
         if method.lower() == "put":
             with open(local_file_path, "rb") as file:
-                while chunk := file.read():
+                while chunk := file.read(CHUNK_SIZE):
                     response = requests.put(signed_url, data=chunk, headers={"Content-Type": "application/octet-stream"})
                     response.raise_for_status()
         else:
             with open(local_file_path, 'rb') as file:
-                while chunk := file.read():
+                while chunk := file.read(CHUNK_SIZE):
                     response = requests.post(signed_url, data=chunk, headers={'Content-Type': 'application/octet-stream'})
                     response.raise_for_status()
      
