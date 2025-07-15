@@ -486,7 +486,7 @@ class LakehouseClient:
 
         df = pd.DataFrame(records)
 
-        columns_order = ["id", "file_name", "file_category", "file_size", "processing_level", "public", "inserted_by", "inserted_at", "collection_id", "collection_name"]
+        columns_order = ["id", "file_name", "file_category", "file_size", "processing_level", "public", "inserted_by", "inserted_at", "collection_id", "collection_name", "file_location"]
 
         filtered_df = df[columns_order].copy()
 
