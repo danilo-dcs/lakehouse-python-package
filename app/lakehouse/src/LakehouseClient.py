@@ -314,10 +314,12 @@ class LakehouseClient:
         self,
         sort_by_key: str = None, 
         sort_desc: bool = False
-    ) -> str:
+    ) -> pd.DataFrame:
+    # ) -> str:
         """Description: Lists all available collections and returns a string in a table format\n"""
         df = self.list_collections_df(sort_by_key, sort_desc)
-        return self.__df_to_tablestring(df=df)
+        # return self.__df_to_tablestring(df=df)
+        return df
     
     def list_files(
         self,
@@ -326,15 +328,21 @@ class LakehouseClient:
         include_curated: bool = True, 
         sort_by_key: str = None, 
         sort_desc: bool = False
-    ) -> str:
+    ) -> pd.DataFrame:
+    # ) -> str:
         """Description: Lists all available files and returns a string in a table format with the records\n"""
         df  = self.list_files_df(include_raw, include_processed, include_curated, sort_by_key, sort_desc)
-        return self.__df_to_tablestring(df=df)
+        return df
+        # return self.__df_to_tablestring(df=df)
       
-    def list_buckets(self) -> str:
+    def list_buckets(
+        self
+    ) -> pd.DataFrame:
+    # ) -> str:
         """Lists all the available storage buckets in the system and returns a string formated as a table with the records"""
         df = self.list_buckets_df()
-        return self.__df_to_tablestring(df=df)
+        # return self.__df_to_tablestring(df=df)
+        return df
 
 
     # listing dictionaries functions
