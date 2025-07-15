@@ -634,7 +634,7 @@ class LakehouseClient:
     def search_collections_by_keyword(
         self,
         keyword: str,
-        output_format: Literal["df", "json", "dict", "table"] = "table"
+        output_format: Literal["df", "json", "dict", "table"] = "df"
     ) -> dict:
         """Description: Search files on the catalogue based on the given filters\n
             Parameter: \n
@@ -671,7 +671,7 @@ class LakehouseClient:
     def search_files_by_keyword(
         self,
         keyword: str,
-        output_format: Literal["df", "json", "dict", "table"] = "table"
+        output_format: Literal["df", "json", "dict", "table"] = "df"
     ) -> dict:
         """Description: Search files on the catalogue based on the given filters\n
             Parameter: \n
@@ -709,7 +709,7 @@ class LakehouseClient:
     def search_collections_query(
         self,
         *args,
-        output_format: Literal["df", "json", "dict", "table"] = "table"
+        output_format: Literal["df", "json", "dict", "table"] = "df"
     ) -> list[dict]:
         """Description: Search files on the catalogue based on the given filters\n
             
@@ -760,7 +760,7 @@ class LakehouseClient:
     def search_files_query(
         self,
         *args,
-        output_format: Literal["df", "json", "dict", "table"] = "table"
+        output_format: Literal["df", "json", "dict", "table"] = "df"
     ) -> list[dict]:
         """Description: Search files on the catalogue based on the given filters\n
             Parameters:
