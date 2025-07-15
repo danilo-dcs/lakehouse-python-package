@@ -100,13 +100,16 @@ Buckets:
 - [client.upload_dataframe()](#clientupload_dataframe)
 - [client.upload_file()](#clientupload_file)
 
-### Search the lakehouse catalog
+### Basic search
 
 - [client.search_collections_by_keyword()](#clientsearch_collections_by_keyword)
-- [client.search_collections_query()](#clientsearch_collections_query)<br><br>
-
 - [client.search_files_by_keyword()](#clientsearch_files_by_keyword)
+
+### Advanced search query
+
 - [client.search_files_query()](#clientsearch_files_query)
+- [client.search_collections_query()](#clientsearch_collections_query)
+
 
 ## 🔧 Function Details
 
