@@ -603,20 +603,9 @@ class LakehouseClient:
         CHUNK_SIZE = 5 * 1024 * 1024
 
         if method.lower() == "put":  # cloud
-
-            init_response = requests.post(          # initializing resumable upload
-                signed_url,
-                headers={"x-goog-resumable": "start"}
-            )
-            init_response.raise_for_status()
-            session_uri = init_response.headers.get("location")
-
-            if not session_uri:
-                raise ValueError("Failed to get session URI for resumable upload")
-
             with open(local_file_path, "rb") as file:
                 while chunk := file.read(CHUNK_SIZE):
-                    response = requests.put(session_uri, data=chunk, headers={"Content-Type": "application/octet-stream"})
+                    response = requests.put(signed_url, data=chunk, headers={"Content-Type": "application/octet-stream"})
                     response.raise_for_status()
         else:
             with open(local_file_path, 'rb') as file:  # hdfs
