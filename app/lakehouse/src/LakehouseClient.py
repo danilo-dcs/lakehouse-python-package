@@ -11,13 +11,10 @@ class LakehouseClient:
      
     def __init__(self, lakehouse_url: str, protocol: Literal["http", "https"] = "https") -> None:
 
-        pattern = re.compile(r'^(?:https?://)?(.+)$')
-        match = pattern.match(lakehouse_url)
-        domain = match.group(1)
-        
-        normalized_url = f'{protocol}://{domain}'
+        pattern = re.compile(r'^https?://', re.IGNORECASE)
+        domain = pattern.sub('', lakehouse_url)
 
-        self.__lakehouse_url = normalized_url
+        self.__lakehouse_url = f'{protocol}://{domain}'
         self.__user_id = None
         self.__user_role = None
         self.__user_email = None
