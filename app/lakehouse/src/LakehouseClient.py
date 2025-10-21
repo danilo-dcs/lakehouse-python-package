@@ -9,13 +9,13 @@ import json
 CHUNK_SIZE = 1 * 1024 * 1024
 class LakehouseClient:
      
-    def __init__(self, lakehouse_url: str) -> None:
+    def __init__(self, lakehouse_url: str, protocol: Literal["http", "https"] = "https") -> None:
 
         pattern = re.compile(r'^(?:https?://)?(.+)$')
         match = pattern.match(lakehouse_url)
         domain = match.group(1)
         
-        normalized_url = f'http://{domain}'
+        normalized_url = f'{protocol}://{domain}'
 
         self.__lakehouse_url = normalized_url
         self.__user_id = None
@@ -211,8 +211,6 @@ class LakehouseClient:
             payload["bucket_name"] = bucket_name
 
         response = self.__make_request(method="POST", endpoint="/storage/collections/create", json=payload)
-
-        print(response)
 
         return response
     
