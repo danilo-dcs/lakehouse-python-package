@@ -117,10 +117,16 @@ class LakehouseClient:
         """
 
         url = f"{self.__lakehouse_url}{endpoint}"
-        headers = {
-            "Authorization": f"Bearer {self.__access_token}",
-            "Content-Type": "application/json",
-        }
+
+        if(method.lower() == "get"):
+            headers = {
+                "Authorization": f"Bearer {self.__access_token}"
+            }
+        else:
+            headers = {
+                "Authorization": f"Bearer {self.__access_token}",
+                "Content-Type": "application/json",
+            }
 
         try:
             response = requests.request(
@@ -152,8 +158,6 @@ class LakehouseClient:
     def auth(self, email: str, password: str) -> str:
         """Authenticates the user based on the logn details. It returns the authentication token"""
 
-        msg = "Session Authenticated!"
-
         auth_payload = dict(email=email, password=password)
 
         response = self.__make_request(method="POST", endpoint="/auth/login", json=auth_payload)
@@ -165,6 +169,9 @@ class LakehouseClient:
             self.__refresh_token = response["refresh_token"]
             self.__access_token_type = response["token_type"]
             self.__user_email = email
+
+            msg = "Session Authenticated!"
+
         else:
             msg = "Unable to authenticate!"
 
@@ -348,7 +355,7 @@ class LakehouseClient:
     ) -> list[dict]:
         """Description: Lists all available collections and returns a list of dictionary with the records\n"""
 
-        response = self.__make_request(method="GET", endpoint="/catalog/collections/all")
+        response = self.__make_request(method="GET", endpoint="/catalog/collections/all/")
 
         records = response.get("records", [])
 
@@ -367,7 +374,7 @@ class LakehouseClient:
     ) -> list[dict]:
         """Description: Lists all available files and returns a list of dictionaries with the records\n"""
 
-        response = self.__make_request(method="GET", endpoint="/catalog/files/all")
+        response = self.__make_request(method="GET", endpoint="/catalog/files/all/")
 
         records = response.get("records", [])
 
