@@ -15,13 +15,8 @@ This python lib supports the access to the lakehouse app via python scripts
 
 ## 📌 Installation and usage
 
-To install the library enter the following command:
 
-```python
-pip install lakehouselib
-```
-
-If the library is hosted in TestPyPI and does not have an official version available at PyPI yet run the command
+The library is hosted in TestPyPI and does not have an official version available at PyPI yet run the command
 
 ```python
 pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple lakehouselib
@@ -36,7 +31,7 @@ from lakehouse import LakehouseClient
 To use the lakehouse functionalities create an instance of LakehouseClient by running:
 
 ```python
-client = LakehouseClient("lakehouse_app_url")
+client = LakehouseClient("https://lakehouse-api.pathotrack.health")
 ```
 
 ## 🚨 Supported Environments for Data Storage

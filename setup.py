@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="lakehouselib",
-    version="1.3.8",
+    version="1.3.9",
     description="This library interacts with the data lakehouse infrastructure",
     package_dir={"": "app"},
     packages=find_packages(where="app"),
