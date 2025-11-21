@@ -15,11 +15,7 @@ class LakehouseClient:
         domain = pattern.sub('', lakehouse_url)
 
         self.__lakehouse_url = f'{protocol}://{domain}'
-        self.__user_id = None
-        self.__user_role = None
-        self.__user_email = None
         self.__access_token = None
-        self.__access_token_type = None
         self.__file_load_path = "./"
 
     # utlities
@@ -163,12 +159,7 @@ class LakehouseClient:
         response = self.__make_request(method="POST", endpoint="/auth/login", json=auth_payload)
 
         if response:
-            self.__user_id = response["user_id"]
-            self.__user_role = response["user_role"]
             self.__access_token = response["access_token"]
-            self.__refresh_token = response["refresh_token"]
-            self.__access_token_type = response["token_type"]
-            self.__user_email = email
 
             msg = "Session Authenticated!"
 
